@@ -1,0 +1,15 @@
+name: Profile README Auto-Update
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update visitor counter
+        uses: PeaceIRI/gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
